@@ -9,17 +9,20 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // PROBLEM 4 - make the "Blog" button navigate programmatically to "/blog"
 
-const Home = () => <h3>This is the Home page</h3>
-const Careers = () => <h3>This is the Careers page</h3>
-const Blog = () => <h3>This is the Blog page</h3>
+const Home = () => <h3 style={{ ...style}}>This is the Home page</h3>
+const Careers = () => <h3 style={{ ...style, borderColor: "red"}}>This is the Careers page</h3>
+const Blog = () => <h3 style={{ ...style, borderColor: "green"}}>This is the Blog page</h3>
+
+const style = {padding: '10px', border: "5px solid black"}
 
 export default function App() {
+  const navigate = useNavigate()
   return (
     <div>
       <nav>
-        <button>Home</button>
-        <button>Careers</button>
-        <button>Blog</button>
+        <button onClick={() => navigate("/")}>Home</button>
+        <button onClick={() => navigate("/careers")}>Careers</button>
+        <button onClick={()=> navigate("/blog")}>Blog</button>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
