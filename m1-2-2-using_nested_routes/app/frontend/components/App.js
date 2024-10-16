@@ -16,13 +16,29 @@ const Food = () => {
       <nav>
         <Link to="broccoli">Broccoli </Link>
         <Link to="pizza">Pizza </Link>
+
       </nav>
       <Routes>
-        <Route element={<h3 className="el">Broccoli</h3>} />
-        <Route element={<h3 className="el">Pizza</h3>} />
+        <Route path='broccoli' element={  < Broccoli />}  />
+        <Route path='pizza' element={<Pizza /> } />
       </Routes>
     </div>
   )
+}
+
+function Pizza(props){
+  return(<div style={{color: 'red', border: '2px solid green'}}>
+  <h3>Are you ready to order:</h3>
+  </div>
+  )
+}
+
+function Broccoli(props){
+  return(
+<div style={{border: '2px solid blue'}}>
+<h3>Broccoli page</h3>
+</div>
+)
 }
 export default function App() {
   return (
@@ -33,7 +49,7 @@ export default function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route element={<Food />} />
+        <Route path="food*" element={<Food />} />
       </Routes>
     </div>
   )
